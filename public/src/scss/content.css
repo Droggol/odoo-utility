@@ -1,0 +1,17 @@
+.ou-navigation-button-container {
+    position: fixed;
+    z-index: 1;
+    right: 20px;
+    bottom: 45px;
+}
+.ou-navigation-button-container .ou-navigation-button {
+    padding: 10px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 100rem;
+    line-height: 10px;
+    cursor: pointer;
+}

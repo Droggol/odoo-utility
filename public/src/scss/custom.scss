@@ -1,0 +1,67 @@
+// Popup Page
+$all-colors: map-merge-multiple($theme-colors, $colors);
+@each $color, $value in $all-colors {
+    .ou-bg-#{$color} {
+        color: color-contrast($value);
+        background-color: $value;
+    }
+}
+
+@each $colorName, $color in $all-colors {
+    .btn-#{$colorName}-soft {
+        @include button-variant(rgba($color, 0.1), transparent, $color, $color, $color, $active-background: $color);
+        &:hover, &:focus {
+            box-shadow: 0 4px 11px rgba($color, 0.35);
+        }
+    }
+}
+
+.ou-popup-container {
+    min-width: 40rem;
+    background-color: $gray-200;
+    .header {
+        background-color: $white;
+        .logo {
+            max-height: 30px;
+        }
+    }
+    .ou-link-container {
+        .ou-link {
+            background-color: $white;
+            transition: 0.2s;
+            .link {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1;
+            }
+            .ou-icon-container {
+                height: 30px;
+                width: 30px;
+                line-height: 30px;
+                text-align: center;
+            }
+        }
+    }
+}
+
+// Options Page
+.ou-options-container {
+    margin: 40px auto 20px;
+    width: 550px;
+    .ou-options-box {
+        .logo {
+            max-height: 50px;
+        }
+        hr {
+            background-color: $gray-500;
+        }
+    }
+    .ou-options-footer {
+        .logo {
+            max-height: 35px;
+        }
+    }
+}
