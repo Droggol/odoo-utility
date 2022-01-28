@@ -1,0 +1,34 @@
+{
+  "name": "odoo-utility",
+  "version": "1.0.0",
+  "description": "Shortcuts for Odoo",
+  "scripts": {
+    "css:compile": "node-sass public/src/scss/main.scss public/src/scss/style.css",
+    "publish": "npm run css:compile && cp node_modules/bootstrap/dist/js/bootstrap.bundle.js public/src/lib",
+    "watch": "nodemon -e scss -x \"npm run css:compile\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Droggol/odoo-utility.git"
+  },
+  "keywords": [
+    "odoo",
+    "runbot",
+    "chrome",
+    "firefox",
+    "browser",
+    "utility",
+    "extension"
+  ],
+  "author": "Droggol Infotech Private Limited",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Droggol/odoo-utility/issues"
+  },
+  "homepage": "https://github.com/Droggol/odoo-utility#readme",
+  "devDependencies": {
+    "bootstrap": "^5.1.3",
+    "node-sass": "^7.0.1",
+    "nodemon": "^2.0.15"
+  }
+}
