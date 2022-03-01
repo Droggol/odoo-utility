@@ -46,7 +46,7 @@ if (!BLACKLIST_DOMAIN.includes(window.location.hostname)) {
     
                     const NAVIGATION_BUTTON_TEMPLATE = `\
                         <div class="ou-navigation-button">
-                            Goto ${navigationMode}
+                            Go to ${navigationMode}
                         </div>
                     `;
                     const navigationEl = document.createElement('div');
