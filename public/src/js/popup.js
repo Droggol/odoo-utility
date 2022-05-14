@@ -57,6 +57,9 @@ const COMPONENTS = [{
     }, {
         title: 'Installation',
         link: 'https://www.odoo.com/documentation/15.0/administration.html',
+    }, {
+        title: 'Awesome-Odoo',
+        link: 'https://desdelinux.github.io/awesome-odoo',
     }],
 }, {
     icon: 'github',
