@@ -1,5 +1,47 @@
-// Popup Page
 $all-colors: map-merge-multiple($theme-colors, $colors);
+
+:root {
+    --ou-block-bg: #ffffff;
+}
+
+:root[dark-mode] {
+    --bs-body-color: #fff;
+    --bs-body-bg: #000;
+    --bs-white: #000;
+    --bs-gray-100: #212529;
+    --bs-gray-200: #343a40;
+    --bs-gray-300: #495057;
+    --bs-gray-400: #6c757d;
+    --bs-gray-500: #adb5bd;
+    --bs-gray-600: #ced4da;
+    --bs-gray-700: #dee2e6;
+    --bs-gray-800: #e9ecef;
+    --bs-gray-900: #f8f9fa;
+    --bs-black: #fff;
+    --ou-block-bg: var(--bs-gray-100);
+}
+
+[dark-mode] {
+    [class*='border'] {
+        border-color: var(--bs-gray-300) !important;
+    }
+    @each $colorName, $color in $all-colors {
+        .btn-#{$colorName}-soft {
+            @if ($colorName == 'dark') {
+                @include button-variant(transparent, #adb5bd, #adb5bd, #adb5bd, #adb5bd, $active-background: #adb5bd);
+            } @else {
+                @include button-variant(transparent, $color, $color, $color, $color, $active-background: $color);
+            }
+            &:hover, &:focus {
+                box-shadow: 0 4px 11px rgba($color, 0.35);
+            }
+        }
+    }
+    .btn-link {
+        color: var(--bs-gray-600);
+    }
+}
+
 @each $color, $value in $all-colors {
     .ou-bg-#{$color} {
         color: color-contrast($value);
@@ -18,16 +60,16 @@ $all-colors: map-merge-multiple($theme-colors, $colors);
 
 .ou-popup-container {
     min-width: 40rem;
-    background-color: $gray-200;
+    background-color: var(--bs-gray-300);
     .header {
-        background-color: $white;
+        background-color: var(--ou-block-bg);
         .logo {
             max-height: 30px;
         }
     }
     .ou-link-container {
         .ou-link {
-            background-color: $white;
+            background-color: var(--ou-block-bg);
             transition: 0.2s;
             .link {
                 position: absolute;
@@ -56,7 +98,7 @@ $all-colors: map-merge-multiple($theme-colors, $colors);
             max-height: 50px;
         }
         hr {
-            background-color: $gray-500;
+            background-color: var(--bs-gray-500);
         }
     }
     .ou-options-footer {

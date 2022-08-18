@@ -3,15 +3,40 @@
     z-index: 1;
     right: 20px;
     bottom: 45px;
-}
-.ou-navigation-button-container .ou-navigation-button {
-    padding: 10px 10px;
+
+    padding: 4px;
     font-size: 12px;
     font-weight: bold;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
     background: white;
-    border: 1px solid #ccc;
     border-radius: 100rem;
-    line-height: 10px;
+    border: 1px solid #ebebeb;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ou-navigation-button-container .ou-navigation-button {
+    margin-right: 4px;
+    padding: 0px 10px;
+}
+.ou-navigation-button-container .ou-more-button {
+    width: 28px;
+}
+
+.ou-navigation-button-container .ou-clickable-button {
+    background: #f1f1f1;
+    border-radius: 100rem;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
     cursor: pointer;
+    transition: 0.2s;
+}
+.ou-navigation-button-container .ou-clickable-button::after {
+    display: none;
+}
+.ou-navigation-button-container .ou-clickable-button:hover {
+    background: #e2e2e2;
 }

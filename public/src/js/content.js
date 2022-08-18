@@ -8,7 +8,7 @@ if (!BLACKLIST_DOMAIN.includes(window.location.hostname)) {
     scriptEl.onload = () => scriptEl.parentNode.removeChild(scriptEl);
 
     window.addEventListener('message', event => {
-        if (event.data && event.data.isOdooPage && !BLACKLIST_DOMAIN.includes(window.location.hostname)) {
+        if (event.data && event.data.isOdooPage) {
             chrome.runtime.sendMessage({method: 'getOptions'}, options => {
                 // Add login buttons
                 if (document.getElementsByClassName('oe_login_form') && document.querySelector('.field-login')) {
@@ -38,15 +38,34 @@ if (!BLACKLIST_DOMAIN.includes(window.location.hostname)) {
                 }
     
                 // Add navigation button
-                if (options.showNavigationButton) {
+                if (options.showNavigationButton && !window.location.pathname.includes('/pos/')) {
                     let navigationMode = 'Backend';
                     if (window.location.pathname === '/web' && document.body.classList.contains('o_web_client')) {
                         navigationMode = 'Frontend';
                     }
     
                     const NAVIGATION_BUTTON_TEMPLATE = `\
-                        <div class="ou-navigation-button">
-                            Goto ${navigationMode}
+                        <div class="ou-navigation-button ou-clickable-button">
+                            Go to ${navigationMode}
+                        </div>
+                        <div class="dropdown">
+                            <div class="ou-more-button ou-clickable-button dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                    <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                </svg>
+                            </div>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/web/login">Login</a>
+                                <a class="dropdown-item" href="/shop">Shop</a>
+                                <a class="dropdown-item" href="/my/home">Portal</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/web/database/selector">Database Manager</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item small ou-hide" href="#" style="font-size: 11px;">
+                                    <div class="text-danger"><i class="fa fa-eye-slash"></i> Hide</div>
+                                    <i>You can turn on later from options.</i>
+                                </a>
+                            </div>
                         </div>
                     `;
                     const navigationEl = document.createElement('div');
@@ -60,6 +79,13 @@ if (!BLACKLIST_DOMAIN.includes(window.location.hostname)) {
                         } else {
                             window.location.replace(window.location.origin);
                         }
+                    });
+
+                    navigationEl.querySelector('.ou-hide').addEventListener('click', event => {
+                        event.preventDefault();
+                        chrome.runtime.sendMessage({method: 'disableNavigationButton'}, () => {
+                            navigationEl.remove();
+                        });
                     });
                 }
             });

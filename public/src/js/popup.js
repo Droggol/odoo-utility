@@ -20,7 +20,7 @@ const COMPONENTS = [{
     icon: 'patch-question',
     color: 'danger',
     link: 'https://www.odoo.com/help',
-    title: 'Odoo support',
+    title: 'Odoo Support',
     size: 6,
 }, {
     icon: 'card-text',
@@ -50,13 +50,13 @@ const COMPONENTS = [{
         link: 'https://www.odoo.com/slides/all',
     }, {
         title: 'User Docs',
-        link: 'https://www.odoo.com/documentation/15.0/applications.html',
+        link: 'https://www.odoo.com/documentation/latest/applications.html',
     }, {
         title: 'Developer',
-        link: 'https://www.odoo.com/documentation/15.0/developer.html',
+        link: 'https://www.odoo.com/documentation/latest/developer.html',
     }, {
         title: 'Installation',
-        link: 'https://www.odoo.com/documentation/15.0/administration.html',
+        link: 'https://www.odoo.com/documentation/latest/administration.html',
     }],
 }, {
     icon: 'github',
@@ -140,4 +140,28 @@ document.querySelector('.ou-link-container').innerHTML = componentContent;
 
 document.querySelector('.ou-open-options-page').addEventListener('click', ev => {
     chrome.tabs.create({ url: 'options.html' });
+});
+
+chrome.runtime.sendMessage({method: 'getOptions'}, options => {
+    switch (options.themePreference) {
+        case 'auto':
+            if (!window.matchMedia) {
+                return;
+            }
+            const query = window.matchMedia('(prefers-color-scheme: dark)');
+            query.addEventListener('change', ev => {
+                if (ev.matches) {
+                    document.querySelector('html').setAttribute('dark-mode', '1');
+                } else {
+                    document.querySelector('html').removeAttribute('dark-mode');
+                }
+            });
+            if (query.matches) {
+                document.querySelector('html').setAttribute('dark-mode', '1');
+            }
+            break;
+        case 'dark':
+            document.querySelector('html').setAttribute('dark-mode', '1');
+            break;
+    }
 });

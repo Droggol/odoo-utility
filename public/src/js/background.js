@@ -3,7 +3,8 @@ const OPTIONS = {
     showCustomLoginButton: false,
     customLoginButtonUsername: '',
     customLoginButtonPassword: '',
-    showNavigationButton: false,
+    showNavigationButton: true,
+    themePreference: 'auto',
 };
 
 chrome.runtime.onInstalled.addListener(details => {
@@ -14,6 +15,11 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if (request.method == 'getOptions') {
         chrome.storage.sync.get(null, options =>{
             sendResponse(options);
+        });
+    }
+    if (request.method == 'disableNavigationButton') {
+        chrome.storage.sync.set({showNavigationButton: false}, () => {
+            sendResponse();
         });
     }
     return true;
