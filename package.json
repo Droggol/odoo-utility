@@ -1,7 +1,7 @@
 {
   "name": "odoo-utility",
   "version": "1.0.0",
-  "description": "Shortcuts for Odoo",
+  "description": "Simple shortcuts and tools to save time",
   "scripts": {
     "css:compile": "node-sass public/src/scss/main.scss public/src/scss/style.css",
     "publish": "npm run css:compile && cp node_modules/bootstrap/dist/js/bootstrap.bundle.js public/src/lib",

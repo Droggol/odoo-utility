@@ -32,6 +32,7 @@ Simple shortcuts and tools to save time.
     <img src="public/src/images/screenshots/2.png" width="48%"/>
     <img src="public/src/images/screenshots/3.png" width="48%"/>
     <img src="public/src/images/screenshots/4.png" width="48%"/>
+    <img src="public/src/images/screenshots/5.png" width="48%"/>
 </p>
 
 ## Installation
@@ -41,7 +42,8 @@ Simple shortcuts and tools to save time.
 ## Features
 - Bookmark of daily used links.
 - Quick login buttons on login page.
-- Navigation button to quickly redirect between frontend or backend.
+- Navigation buttons.
+- Light/Dark theme.
 
 ## Contributors
 

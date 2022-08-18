@@ -27,30 +27,41 @@
                     <div class="row">
                         <div class="col-12 py-3">
                             <div class="form-check form-switch">
-                                <input id="show-login-buttons" class="form-check-input" type="checkbox" role="switch"/>
+                                <input data-type="boolean" id="show-login-buttons" class="form-check-input" type="checkbox" role="switch"/>
                                 <label class="form-check-label" for="show-login-buttons">Show login buttons</label>
                             </div>
                             <hr class="my-2"/>
                             <div class="form-check form-switch">
-                                <input id="show-navigation-button" class="form-check-input" type="checkbox" role="switch"/>
-                                <label class="form-check-label" for="show-navigation-button">Show navigation button (Beta)</label>
+                                <input data-type="boolean" id="show-navigation-button" class="form-check-input" type="checkbox" role="switch"/>
+                                <label class="form-check-label" for="show-navigation-button">Show navigation button</label>
                             </div>
                             <hr class="my-2"/>
                             <div class="form-check form-switch">
-                                <input id="show-custom-login-button" class="form-check-input" type="checkbox" role="switch"/>
+                                <input data-type="boolean" id="show-custom-login-button" class="form-check-input" type="checkbox" role="switch"/>
                                 <label class="form-check-label" for="show-custom-login-button">Show custom login button</label>
                             </div>
                             <div class="row mt-2">
                                 <div class="col">
                                     <label class="form-label mb-1" for="custom-login-button-username">Custom username:</label>
-                                    <input id="custom-login-button-username" type="text" class="form-control"/>
+                                    <input data-type="text" id="custom-login-button-username" type="text" class="form-control"/>
                                 </div>
                                 <div class="col">
-                                    <label class="form-label mb-1" for="custom-login-button-username">
+                                    <label class="form-label mb-1" for="custom-login-button-password">
                                         Custom password:
                                         <i title="Don't save your production password. This is for development purpose only." class="bi bi-info-circle"></i>
                                     </label>
-                                    <input id="custom-login-button-password" type="text" class="form-control"/>
+                                    <input data-type="text" id="custom-login-button-password" type="text" class="form-control"/>
+                                </div>
+                            </div>
+                            <hr class="my-2"/>
+                            <div class="row mt-2">
+                                <div class="col">
+                                    <label class="form-label mb-1" for="theme-preference">Theme Preference:</label>
+                                    <select data-type="selection" id="theme-preference" class="form-select" aria-label="Theme Preference">
+                                        <option value="light">Light</option>
+                                        <option value="dark">Dark</option>
+                                        <option value="auto">Sync with OS setting</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
