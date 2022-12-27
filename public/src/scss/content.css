@@ -8,9 +8,9 @@
     font-size: 12px;
     font-weight: bold;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
-    background: white;
+    background: var(--white);
     border-radius: 100rem;
-    border: 1px solid #ebebeb;
+    border: 1px solid var(--200);
 
     display: flex;
     align-items: center;
@@ -26,7 +26,7 @@
 }
 
 .ou-navigation-button-container .ou-clickable-button {
-    background: #f1f1f1;
+    background: var(--200);
     border-radius: 100rem;
     height: 28px;
     line-height: 28px;
@@ -38,5 +38,5 @@
     display: none;
 }
 .ou-navigation-button-container .ou-clickable-button:hover {
-    background: #e2e2e2;
+    background: var(--300);
 }
