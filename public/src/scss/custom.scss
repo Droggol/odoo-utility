@@ -1,30 +1,6 @@
 $all-colors: map-merge-multiple($theme-colors, $colors);
 
-:root {
-    --ou-block-bg: #ffffff;
-}
-
-:root[dark-mode] {
-    --bs-body-color: #fff;
-    --bs-body-bg: #000;
-    --bs-white: #000;
-    --bs-gray-100: #212529;
-    --bs-gray-200: #343a40;
-    --bs-gray-300: #495057;
-    --bs-gray-400: #6c757d;
-    --bs-gray-500: #adb5bd;
-    --bs-gray-600: #ced4da;
-    --bs-gray-700: #dee2e6;
-    --bs-gray-800: #e9ecef;
-    --bs-gray-900: #f8f9fa;
-    --bs-black: #fff;
-    --ou-block-bg: var(--bs-gray-100);
-}
-
-[dark-mode] {
-    [class*='border'] {
-        border-color: var(--bs-gray-300) !important;
-    }
+@include color-mode(dark) {
     @each $colorName, $color in $all-colors {
         .btn-#{$colorName}-soft {
             @if ($colorName == 'dark') {
@@ -37,8 +13,8 @@ $all-colors: map-merge-multiple($theme-colors, $colors);
             }
         }
     }
-    .btn-link {
-        color: var(--bs-gray-600);
+    .ou-open-options-page {
+        color: var(--bs-light-text) !important;
     }
 }
 
@@ -60,16 +36,16 @@ $all-colors: map-merge-multiple($theme-colors, $colors);
 
 .ou-popup-container {
     min-width: 40rem;
-    background-color: var(--bs-gray-300);
+    background-color: var(--bs-secondary-bg);
     .header {
-        background-color: var(--ou-block-bg);
+        background-color: var(--bs-body-bg);
         .logo {
             max-height: 30px;
         }
     }
     .ou-link-container {
         .ou-link {
-            background-color: var(--ou-block-bg);
+            background-color: var(--bs-body-bg);
             transition: 0.2s;
             .link {
                 position: absolute;
@@ -98,7 +74,8 @@ $all-colors: map-merge-multiple($theme-colors, $colors);
             max-height: 50px;
         }
         hr {
-            background-color: var(--bs-gray-500);
+            border-color: var(--bs-border-color);
+            opacity: 1;
         }
     }
     .ou-options-footer {

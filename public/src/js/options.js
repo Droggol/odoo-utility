@@ -1,3 +1,5 @@
+import { initTheme, toggleTheme } from './common.js';
+
 const SELECTORS = {
     showLoginButtons: {selector: 'show-login-buttons', type: 'boolean'},
     showCustomLoginButton: {selector: 'show-custom-login-button', type: 'boolean'},
@@ -40,6 +42,11 @@ for (const [key, value] of Object.entries(SELECTORS)) {
         chrome.storage.sync.set(values);
     });
 }
+
+document.getElementById('theme-preference').addEventListener('change', event => {
+    toggleTheme(event.currentTarget.value);
+});
+initTheme();
 
 // Set version name
 document.getElementById('version-name').textContent = chrome.runtime.getManifest().version;

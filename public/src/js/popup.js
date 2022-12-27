@@ -1,3 +1,5 @@
+import { initTheme, toggleTheme } from './common.js';
+
 const COMPONENTS = [{
     icon: 'globe',
     color: 'primary',
@@ -67,9 +69,9 @@ const COMPONENTS = [{
         title: 'Source Code',
         link: 'https://github.com/odoo/odoo/tree/master',
         items: {
+            '16.0': 'https://github.com/odoo/odoo/tree/16.0',
             '15.0': 'https://github.com/odoo/odoo/tree/15.0',
             '14.0': 'https://github.com/odoo/odoo/tree/14.0',
-            '13.0': 'https://github.com/odoo/odoo/tree/13.0',
         }
     }, {
         title: 'Issues',
@@ -142,26 +144,4 @@ document.querySelector('.ou-open-options-page').addEventListener('click', ev => 
     chrome.tabs.create({ url: 'options.html' });
 });
 
-chrome.runtime.sendMessage({method: 'getOptions'}, options => {
-    switch (options.themePreference) {
-        case 'auto':
-            if (!window.matchMedia) {
-                return;
-            }
-            const query = window.matchMedia('(prefers-color-scheme: dark)');
-            query.addEventListener('change', ev => {
-                if (ev.matches) {
-                    document.querySelector('html').setAttribute('dark-mode', '1');
-                } else {
-                    document.querySelector('html').removeAttribute('dark-mode');
-                }
-            });
-            if (query.matches) {
-                document.querySelector('html').setAttribute('dark-mode', '1');
-            }
-            break;
-        case 'dark':
-            document.querySelector('html').setAttribute('dark-mode', '1');
-            break;
-    }
-});
+initTheme();

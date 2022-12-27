@@ -17,7 +17,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             sendResponse(options);
         });
     }
-    if (request.method == 'disableNavigationButton') {
+    else if (request.method == 'disableNavigationButton') {
         chrome.storage.sync.set({showNavigationButton: false}, () => {
             sendResponse();
         });
