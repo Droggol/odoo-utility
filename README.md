@@ -1,5 +1,5 @@
 <h1 align="center" style="border-bottom: 0px;">
-    <img src="public/src/images/icon128.png"/>
+    <img src="src/media/icon128.png"/>
     <div>Odoo Utility</div>
     <div>
         <a href="https://chrome.google.com/webstore/detail/odoo-utility/jllbemjkkabaohnjcnajhflahlkehmlf">
@@ -28,11 +28,11 @@
 Simple shortcuts and tools to save time.
 
 <p align="center">
-    <img src="public/src/images/screenshots/1.png" width="48%"/>
-    <img src="public/src/images/screenshots/2.png" width="48%"/>
-    <img src="public/src/images/screenshots/3.png" width="48%"/>
-    <img src="public/src/images/screenshots/4.png" width="48%"/>
-    <img src="public/src/images/screenshots/5.png" width="48%"/>
+    <img src="src/media/screenshots/1.png" width="48%"/>
+    <img src="src/media/screenshots/2.png" width="48%"/>
+    <img src="src/media/screenshots/3.png" width="48%"/>
+    <img src="src/media/screenshots/4.png" width="48%"/>
+    <img src="src/media/screenshots/5.png" width="48%"/>
 </p>
 
 ## Installation
@@ -42,8 +42,28 @@ Simple shortcuts and tools to save time.
 ## Features
 - Bookmark of daily used links.
 - Quick login buttons on login page.
-- Navigation buttons.
+- Jump straight to Odoo.sh projects.
 - Light/Dark theme.
+
+## Development
+
+Install modules
+
+```
+npm install
+```
+
+Prepare build for Chrome
+
+```
+npm run build:chrome
+```
+
+Prepare build for Firefox
+
+```
+npm run build:firefox
+```
 
 ## Contributors
 
@@ -60,7 +80,7 @@ Detailed release notes are available [here](CHANGELOG.md).
 Code licensed under [MIT](LICENSE).
 
 <a href="https://www.droggol.com">
-    <img src="public/src/images/logo.png" width="128" height="56"/>
+    <img src="src/media/logo_black.svg" width="128" height="56"/>
 </a>
 
 ## Other Tools

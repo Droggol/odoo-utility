@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+@layer base {
+    @font-face {
+        font-family: 'Lexend Deca';
+        src: url(/src/fonts/Lexend_Deca/LexendDeca-VariableFont_wght.ttf) format('truetype');
+    }
+    body {
+        font-family: 'Lexend Deca', sans-serif;
+    }
+}
