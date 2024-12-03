@@ -1,5 +1,16 @@
 # Changelog
 
+## v4.0 - 2024-12-04
+### Improved
+- Rewrite whole code based on reactjs and tailwindcss
+
+### Added
+- Added search to jump straight to Odoo.sh projects.
+
+### Removed
+- Removed navigation buttons.
+
+
 ## v3.2 - 2022-12-27
 ### Added
 - Update Odoo version to 16.0.

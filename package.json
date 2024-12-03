@@ -1,34 +1,35 @@
 {
   "name": "odoo-utility",
   "version": "1.0.0",
-  "description": "Simple shortcuts and tools to save time",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "scripts": {
-    "css:compile": "node-sass public/src/scss/main.scss public/src/scss/style.css",
-    "publish": "npm run css:compile && cp node_modules/bootstrap/dist/js/bootstrap.bundle.js public/src/lib",
-    "watch": "nodemon -e scss -x \"npm run css:compile\""
+    "build:chrome": "npx webpack",
+    "build:firefox": "npx webpack --env=browser=firefox"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Droggol/odoo-utility.git"
-  },
-  "keywords": [
-    "odoo",
-    "runbot",
-    "chrome",
-    "firefox",
-    "browser",
-    "utility",
-    "extension"
-  ],
-  "author": "Droggol Infotech Private Limited",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Droggol/odoo-utility/issues"
-  },
-  "homepage": "https://github.com/Droggol/odoo-utility#readme",
   "devDependencies": {
-    "bootstrap": "^5.3.0-alpha1",
-    "node-sass": "^8.0.0",
-    "nodemon": "^2.0.20"
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.25.9",
+    "@tailwindcss/forms": "^0.5.9",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.3",
+    "mini-css-extract-plugin": "^2.9.2",
+    "postcss": "^8.4.49",
+    "postcss-loader": "^8.1.1",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@headlessui/react": "^2.2.0",
+    "@heroicons/react": "^2.2.0",
+    "autoprefixer": "^10.4.20",
+    "babel-loader": "^9.2.1",
+    "bootstrap-icons": "^1.11.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.15"
   }
 }

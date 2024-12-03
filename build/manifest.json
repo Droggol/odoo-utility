@@ -1,0 +1,57 @@
+{
+    "manifest_version": 3,
+    "name": "Odoo Utility",
+    "version": "4.0",
+    "description": "Simple shortcuts and tools to save time",
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "media/icon16.png",
+            "32": "media/icon32.png",
+            "48": "media/icon48.png",
+            "128": "media/icon128.png"
+        }
+    },
+    "icons": {
+        "16": "media/icon16.png",
+        "48": "media/icon48.png",
+        "128": "media/icon128.png"
+    },
+    "author": "Droggol Infotech Private Limited",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.odoo.sh/project"
+            ],
+            "js": [
+                "odooshScript.js"
+            ]
+        },
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "contentScript.js"
+            ]
+        }
+    ],
+    "offline_enabled": true,
+    "options_page": "options.html",
+    "permissions": [
+        "storage"
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "pageScript.js"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ]
+}
