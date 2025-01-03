@@ -11,23 +11,15 @@ async function init() {
 
     const BLACKLIST_DOMAIN = ["apps.odoo.com", "runbot.odoo.com", "www.odoo.com", "www.odoo.sh"];
     if (!BLACKLIST_DOMAIN.includes(window.location.hostname)) {
-        // Inject script
-        const scriptEl = document.createElement('script');
-        scriptEl.src = chrome.runtime.getURL('/pageScript.js');
-        (document.head || document.documentElement).appendChild(scriptEl);
-        scriptEl.onload = () => scriptEl.parentNode.removeChild(scriptEl);
-
         const options = await chrome.runtime.sendMessage({ method: "getOptions" });
-        window.addEventListener("message", event => {
-            if (event.data && event.data.isOdooPage && options.showLoginButtons) {
-                if (document.getElementsByClassName("oe_login_form") && document.querySelector(".field-login")) {
-                    const container = document.createElement("div");
-                    document.querySelector(".oe_login_form").insertBefore(container, document.querySelector(".field-login"));
-                    const root = createRoot(container);
-                    root.render(<LoginButtons showCustomBtn={options.showCustomLoginButton} customBtnUsername={options.customLoginButtonUsername} customBtnPassword={options.customLoginButtonPassword} callback={onLoginBtnPress} />);
-                }
+        if (options.showLoginButtons && document.getElementsByClassName("oe_login_form").length) {
+            if (document.getElementsByClassName("oe_login_form") && document.querySelector(".field-login")) {
+                const container = document.createElement("div");
+                document.querySelector(".oe_login_form").insertBefore(container, document.querySelector(".field-login"));
+                const root = createRoot(container);
+                root.render(<LoginButtons showCustomBtn={options.showCustomLoginButton} customBtnUsername={options.customLoginButtonUsername} customBtnPassword={options.customLoginButtonPassword} callback={onLoginBtnPress} />);
             }
-        });
+        }
     }
 }
 

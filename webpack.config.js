@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -43,6 +44,9 @@ module.exports = (env, argv) => {
       ],
     },
     plugins: [
+      new webpack.DefinePlugin({
+        '__REACT_DEVTOOLS_GLOBAL_HOOK__': '({ isDisabled: true })',
+      }),
       new MiniCssExtractPlugin({
         filename: '[name].css',
       }),
@@ -64,6 +68,6 @@ module.exports = (env, argv) => {
       }),
     ],
     mode: isProduction ? 'production' : 'development',
-    devtool: isProduction ? false : 'inline-source-map',
+    devtool: false,
   };
 };
