@@ -7,7 +7,7 @@
   "description": "",
   "scripts": {
     "build:chrome": "npx webpack",
-    "build:firefox": "npx webpack --env=browser=firefox"
+    "build:firefox": "npx webpack --browser=firefox"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.26.0",
