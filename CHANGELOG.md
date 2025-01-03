@@ -1,5 +1,10 @@
 # Changelog
 
+## v4.1 - 2025-01-04
+### Improved
+- Removed reactjs warning
+- Show login button properly
+
 ## v4.0 - 2024-12-04
 ### Improved
 - Rewrite whole code based on reactjs and tailwindcss
