@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -6,7 +7,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
-  const isFirefox = env.browser === 'firefox';
+  const isFirefox = argv.browser === 'firefox';
 
   return {
     entry: {
@@ -43,6 +44,9 @@ module.exports = (env, argv) => {
       ],
     },
     plugins: [
+      new webpack.DefinePlugin({
+        '__REACT_DEVTOOLS_GLOBAL_HOOK__': '({ isDisabled: true })',
+      }),
       new MiniCssExtractPlugin({
         filename: '[name].css',
       }),
