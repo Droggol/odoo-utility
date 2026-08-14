@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Odoo Utility",
-    "version": "4.1",
+    "version": "4.2",
     "description": "Simple shortcuts and tools to save time",
     "action": {
         "default_popup": "popup.html",

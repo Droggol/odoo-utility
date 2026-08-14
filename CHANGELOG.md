@@ -1,5 +1,9 @@
 # Changelog
 
+## v4.2 - 2026-08-14
+### Fixed
+- Adopt sync projects button with new Odoo.sh UI
+
 ## v4.1 - 2025-01-04
 ### Improved
 - Removed reactjs warning
